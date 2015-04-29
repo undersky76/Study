@@ -113,7 +113,13 @@ public class CustomerTest {
 	}
 	
 	private void whenAddRetal(int priceCode, int daysRented) {
-		Movie movie = new Movie("title" , priceCode );
+		Movie movie = null;
+		if(priceCode == Movie.REGULAR)
+			movie = new ReqularMovie("title");
+		else if(priceCode == Movie.NEW_RELEASE)
+			movie = new NewMovie("title");
+		else if(priceCode == Movie.CHILDREN)
+			movie = new ChildrenMovie("title");		
 		Rental retal = new Rental(movie, daysRented);	
 		this.customer.addRetal(retal);
 	}
