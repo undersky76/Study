@@ -1,6 +1,7 @@
 package chapter1;
 
 import static org.junit.Assert.*;
+import jdk.nashorn.internal.ir.annotations.Ignore;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -113,12 +114,12 @@ public class CustomerTest {
 	
 	private void whenAddRetal(int priceCode, int daysRented) {
 		Movie movie = new Movie("title" , priceCode );
-		Rental retal = new Rental(movie, daysRented);		
-		customer.addRetal(retal);
+		Rental retal = new Rental(movie, daysRented);	
+		this.customer.addRetal(retal);
 	}
 
 	private void thenAssertEquals(String expecteds, String actual) {
-		assertEquals(expecteds, customer.statement());
+		assertEquals(expecteds, this.customer.statement());
 	}
 
 }
